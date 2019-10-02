@@ -1,15 +1,19 @@
 ### Date created
-Include the date you created this project and README file.
+2nd October, 2019.
 
 ### Project Title
-Replace the Project Title
+Explore US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+In this project, we use data provided by [Motivate](https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. We compare the system usage between three large cities: Chicago, New York City, and Washington, DC.
+
+This project was implemented and ran successfully in the Udacity workspace and my local Ubuntu 18.04 system. It runs perfectly on all properly setup python environments.
 
 ### Files used
-Include the files used
+- bikeshare.py
+- chicago.csv
+- new_york_city.csv
+- washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+- The credits for the creation of this project go to Udacity.
