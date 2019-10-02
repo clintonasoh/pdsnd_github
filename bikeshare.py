@@ -97,17 +97,17 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
-    most_common_month = df['month'].mode()[0]
-    print('The most common month is: {}'.format(most_common_month))
+    #most_common_month = df['month'].mode()[0]
+    print('The most common month is: {}'.format(df['month'].mode()[0]))
 
     # TO DO: display the most common day of week
-    most_common_day = df['day_of_week'].mode()[0]
-    print('The most common day of the week is: {}'.format(most_common_day))
+    #most_common_day = df['day_of_week'].mode()[0]
+    print('The most common day of the week is: {}'.format(df['day_of_week'].mode()[0]))
 
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
-    most_common_hour = df['hour'].mode()[0]
-    print('The Most Common Start Hour: {}'.format(most_common_hour))
+    #most_common_hour = df['hour'].mode()[0]
+    print('The Most Common Start Hour: {}'.format(df['hour'].mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -142,12 +142,12 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    total_travel_time = sum(df['Trip Duration'])
-    print('Total travel time is: {}'.format(total_travel_time))
+    #total_travel_time = sum(df['Trip Duration'])
+    print('Total travel time is: {}'.format(sum(df['Trip Duration'])))
 
     # TO DO: display mean travel time
-    mean_travel_time = df['Trip Duration'].mean()
-    print('Mean travel time is: {}'.format(mean_travel_time))
+    #mean_travel_time = df['Trip Duration'].mean()
+    print('Mean travel time is: {}'.format(df['Trip Duration'].mean()))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -160,25 +160,25 @@ def user_stats(df):
     start_time = time.time()
 
     # TO DO: Display counts of user types
-    user_types = df['User Type'].value_counts()
-    print('User Type: {}'.format(user_types))
+    #user_types = df['User Type'].value_counts()
+    print('User Type: {}'.format(df['User Type'].value_counts()))
 
     # TO DO: Display counts of gender
     # The washington data file does not have the Gender column.
     if 'Gender' in df.columns:
-        gender = df['Gender'].value_counts()
-        print('Genders: {}'.format(user_types))
+        #gender = df['Gender'].value_counts()
+        print('Genders: {}'.format(df['Gender'].value_counts()))
 
     # TO DO: Display earliest, most recent, and most common year of birth
     # YOB abbreviates Year Of Birth
     # Ony the Chicago and New York City files have the Gender and Birth Year columns
     if 'Birth Year' in df.columns:
-        earliest_YOB = df['Birth Year'].min()
-        most_recent_YOB = df['Birth Year'].max()
-        most_common_YOB = df['Birth Year'].mode()[0]
-        print("\nThe earliest year of birth is: {}".format(str(earliest_YOB)))
-        print("\nThe most recent year of birth is: {}".format(str(most_recent_YOB)))
-        print("\nThe most common year of birth is: {}".format(str(most_common_YOB)))
+        #earliest_YOB = df['Birth Year'].min()
+        #most_recent_YOB = df['Birth Year'].max()
+        #most_common_YOB = df['Birth Year'].mode()[0]
+        print("\nThe earliest year of birth is: {}".format(str(df['Birth Year'].min())))
+        print("\nThe most recent year of birth is: {}".format(str(df['Birth Year'].max())))
+        print("\nThe most common year of birth is: {}".format(str(df['Birth Year'].mode()[0])))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
