@@ -17,3 +17,4 @@ This project was implemented and ran successfully in the Udacity workspace and m
 
 ### Credits
 - The credits for the creation of this project go to Udacity.
+- This project was implemented by Asoh-Itambi Clinton Binda.
