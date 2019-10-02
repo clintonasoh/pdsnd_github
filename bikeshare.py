@@ -164,6 +164,7 @@ def user_stats(df):
     print('User Type: {}'.format(user_types))
 
     # TO DO: Display counts of gender
+    # The washington data file does not have the Gender column.
     if 'Gender' in df.columns:
         gender = df['Gender'].value_counts()
         print('Genders: {}'.format(user_types))
