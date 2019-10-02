@@ -160,24 +160,24 @@ def user_stats(df):
     start_time = time.time()
 
     # TO DO: Display counts of user types
-    user_types = df['User Type'].value_counts()
-    print('User Type: {}'.format(user_types))
+    #user_types = df['User Type'].value_counts()
+    print('User Type: {}'.format(df['User Type'].value_counts()))
 
     # TO DO: Display counts of gender
     if 'Gender' in df.columns:
-        gender = df['Gender'].value_counts()
-        print('Genders: {}'.format(user_types))
+        #gender = df['Gender'].value_counts()
+        print('Genders: {}'.format(df['Gender'].value_counts()))
 
     # TO DO: Display earliest, most recent, and most common year of birth
     # YOB abbreviates Year Of Birth
     # Ony the Chicago and New York City files have the Gender and Birth Year columns
     if 'Birth Year' in df.columns:
-        earliest_YOB = df['Birth Year'].min()
-        most_recent_YOB = df['Birth Year'].max()
-        most_common_YOB = df['Birth Year'].mode()[0]
-        print("\nThe earliest year of birth is: {}".format(str(earliest_YOB)))
-        print("\nThe most recent year of birth is: {}".format(str(most_recent_YOB)))
-        print("\nThe most common year of birth is: {}".format(str(most_common_YOB)))
+        #earliest_YOB = df['Birth Year'].min()
+        #most_recent_YOB = df['Birth Year'].max()
+        #most_common_YOB = df['Birth Year'].mode()[0]
+        print("\nThe earliest year of birth is: {}".format(str(df['Birth Year'].min())))
+        print("\nThe most recent year of birth is: {}".format(str(df['Birth Year'].max())))
+        print("\nThe most common year of birth is: {}".format(str(df['Birth Year'].mode()[0])))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
