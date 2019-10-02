@@ -24,7 +24,7 @@ def get_filters():
             print("\nWe are working with {} data".format(city.upper()))
             break
         else:
-            print('\nPlease choose a valid city, either chicago, new york city, or washington.')  
+            print('\nPlease choose a valid city, either chicago, new york city, or washington.')
             break
 
     # TO DO: get user input for month (all, january, february, ... , june)
@@ -37,7 +37,7 @@ def get_filters():
         else:
             print('\nPlease choose a valid month from the list (january, february, march, april, may, June, all): ')
             break
-            
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'all']
     day = input('\nSelect the day of the week you want to filter the bikeshare data by. \n Choose from the list: (sunday, monday, tuesday, wednesday, thursday, friday, saturday, all): ').lower()
@@ -66,22 +66,22 @@ def load_data(city, month, day):
     # load data file into a dataframe
     data_file = CITY_DATA[city]
     df = pd.read_csv(data_file)
-    
+
     # Convert 'Start Time' column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    
+
     # extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
-    
-    # filter by month if applicable 
+
+    # filter by month if applicable
     if month != 'all':
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month) + 1 
+        month = months.index(month) + 1
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
-    
+
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
@@ -97,18 +97,18 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
-    most_common_month = df['month'].mode()[0]
-    print('The most common month is: {}'.format(most_common_month))
+    #most_common_month = df['month'].mode()[0]
+    print('The most common month is: {}'.format(df['month'].mode()[0]))
 
     # TO DO: display the most common day of week
-    most_common_day = df['day_of_week'].mode()[0]
-    print('The most common day of the week is: {}'.format(most_common_day))
+    #most_common_day = df['day_of_week'].mode()[0]
+    print('The most common day of the week is: {}'.format(df['day_of_week'].mode()[0]))
 
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
-    most_common_hour = df['hour'].mode()[0]
-    print('The Most Common Start Hour: {}'.format(most_common_hour))
-    
+    #most_common_hour = df['hour'].mode()[0]
+    print('The Most Common Start Hour: {}'.format(df['hour'].mode()[0]))
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -130,7 +130,7 @@ def station_stats(df):
     # TO DO: display most frequent combination of start station and end station trip
     most_frequent_trip = (df['Start Station'] + " --- " + df['End Station']).value_counts().idxmax()
     print('The most frequent combination of start station and end station trip is: {}'.format(most_frequent_trip))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -181,10 +181,10 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-# Function to display raw data upon request.    
-def display_raw_data(df):    
+# Function to display raw data upon request.
+def display_raw_data(df):
     counter = 0
-    user_input = input('\nDo you want to see 5 lines of raw data? Enter yes or no.\n').lower() 
+    user_input = input('\nDo you want to see 5 lines of raw data? Enter yes or no.\n').lower()
     while True :
         if user_input != 'no':
             print(df.iloc[counter : counter + 5])
